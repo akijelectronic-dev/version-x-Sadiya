@@ -1,4 +1,4 @@
-const W = 'https://version-x.akijelectronic.workers.dev';
+const W = 'https://sadiya.akijelectronic.workers.dev/';
 const M = {
   manager: ['groq', 'openai/gpt-oss-120b'], chat: ['groq', 'openai/gpt-oss-120b'], memory: ['groq', 'openai/gpt-oss-120b'], reviewer: ['groq', 'openai/gpt-oss-120b'],
   coder: ['openrouter', 'qwen/qwen-2.5-coder-32b-instruct'], writer: ['openrouter', 'meta-llama/llama-3.3-70b-instruct'],
