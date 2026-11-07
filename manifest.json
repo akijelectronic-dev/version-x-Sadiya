@@ -1,0 +1,11 @@
+{
+  "name": "Version X",
+  "short_name": "Version X",
+  "description": "Sadia - multi-agent AI assistant",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#05080a",
+  "theme_color": "#05080a",
+  "icons": [{ "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
