@@ -1,6 +1,6 @@
 {
   "appId": "com.akij.versionx",
   "appName": "Sadia AI",
-  "webDir": "www",
+  "webDir": "/",
   "android": { "allowMixedContent": false }
 }
