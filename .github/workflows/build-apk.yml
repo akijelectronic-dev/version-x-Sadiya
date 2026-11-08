@@ -20,6 +20,14 @@ jobs:
           npx cap add android
           P=android/app/src/main
           cp native/*.java $P/java/com/akij/versionx/
+          IM=$(command -v magick || command -v convert)
+          for s in "mdpi 48 108" "hdpi 72 162" "xhdpi 96 216" "xxhdpi 144 324" "xxxhdpi 192 432"; do
+            set -- $s
+            $IM assets/icon.png -resize ${2}x${2} $P/res/mipmap-$1/ic_launcher.png
+            $IM assets/icon.png -resize ${2}x${2} $P/res/mipmap-$1/ic_launcher_round.png
+            $IM assets/icon-fg.png -resize ${3}x${3} $P/res/mipmap-$1/ic_launcher_foreground.png
+          done
+          echo '<?xml version="1.0" encoding="utf-8"?><resources><color name="ic_launcher_background">#050D24</color></resources>' > $P/res/values/ic_launcher_background.xml
           sed -i 's#<application#<uses-permission android:name="android.permission.CAMERA"/><uses-permission android:name="android.permission.RECORD_AUDIO"/><uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/><uses-permission android:name="android.permission.FLASHLIGHT"/><uses-permission android:name="android.permission.VIBRATE"/><uses-permission android:name="android.permission.POST_NOTIFICATIONS"/><queries><intent><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent></queries><application#' $P/AndroidManifest.xml
           npx cap sync android
       - name: Build debug APK
@@ -28,3 +36,4 @@ jobs:
         with:
           name: SadiaAI-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
+
