@@ -35,7 +35,12 @@ jobs:
           echo "ANDROID_HOME=/usr/lib/android-sdk" >> $GITHUB_ENV
           echo "PATH=$PATH:/usr/lib/android-sdk/tools:/usr/lib/android-sdk/platform-tools" >> $GITHUB_ENV
 
-      # 🔥 নতুন লাইন: Android প্ল্যাটফর্ম যোগ করা হচ্ছে
+      # 🔥 নতুন ধাপ: www ফোল্ডার তৈরি এবং ফাইল কপি
+      - name: Create www directory
+        run: |
+          mkdir -p www
+          cp -r assets js native index.html manifest.json sw.js www/ || true
+
       - name: Add Android Platform
         run: npx cap add android
 
